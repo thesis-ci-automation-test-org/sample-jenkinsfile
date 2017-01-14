@@ -19,6 +19,13 @@ pipeline {
                 }
             }
         }
+
+        stage('Skipped stage') {
+            when { branch 'non-existent' }
+            steps {
+                echo 'We will never come here'
+            }
+        }
         
         stage('Deploy') {
             steps {
